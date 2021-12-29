@@ -1,7 +1,6 @@
 # Base Image
 FROM python:3.8-slim
 
-
 # Install packages
 ADD requeriments.txt .
 RUN python -m pip install -r requeriments.txt
