@@ -52,9 +52,9 @@ In this endpoint are executed 4 basic data preparation.
 * Input parameters:
   
     ```post_data = {'max_na': 0.2, 'max_var': 0.2, 'payload': df_json}```
-    * max_na: Maximum acceptable percentage of null in a column. If more the column is removed.
-    * max_var: Maximum acceptable percentage of value variation in a column. It's based on the concept that a high number of unique values couldn't be good for prediction.
-    * payload: The dataset in format json.
+    * **max_na:** *Float*. Maximum acceptable percentage of null in a column. If more the column is removed.
+    * **max_var:** *Float*. Maximum acceptable percentage of value variation in a column. It's based on the concept that a high number of unique values couldn't be good for prediction.
+    * **payload:** *Json*. The dataset in format json.
 
 * Output:
   * Dataset in format json.
@@ -62,6 +62,40 @@ In this endpoint are executed 4 basic data preparation.
 
 ### Train and Test
 **post /train_test**
+
+In this endpoint the dataset are submitted to 3 different algorithms. It's possible to use regression or classification methods.
+
+* Input parameters:
+  
+```post_data = {'train_columns': ','.join(train_columns), 'target_column': target, 'ml_method': ml_method, 'test_size': 0.2, 'payload': df_json}```
+  * **train_columns:** *String*. Columns separated by comma to train the models, if '' all the columns will be used. Example: "col1, col2, col3".
+  * **target_column:**  *String*. Column to be predicted.
+  * **ml_method:** *String*. Column to choose the machine learning method. Should be "Regression" or "Classification".
+  * **test_size:** *Float*. Size of the part of the data to be tested with the trained algorithms.
+  * **payload:** *Json*. Dataset.
+
+* Output:
+  * Json with the accuracy result of the 3 different algorithms.
+
+### Train
+**post /train**
+
+This endpoint if for train the model with the choosen algorithm. The trained model is saved in the folder *model_registry* inside the container.
+
+* Input parameters:
+  
+```post_data = {'train_columns': ','.join(train_columns), 'target_column': target, 'ml_method': ml_method, 'model_name': 'gradient', 'payload': df_json}```
+  * **train_columns:** *String*. Columns separated by comma to train the models, if '' all the columns will be used. Example: "col1, col2, col3".
+  * **target_column:**  *String*. Column to be predicted.
+  * **ml_method:** *String*. Column to choose the machine learning method. Should be "Regression" or "Classification".
+  * **model_name:** *String*. Name of the algorithm to train the model. In Regression should be "linear", "gradient" ou "randon_forest" and in Classification should be "KNN", "gradient", "randon_forest".
+  * **payload:** *Json*. Dataset.
+
+* Output:
+  * Json with the accuracy result of the 3 different algorithms.
+  
+
+
 
 
 
