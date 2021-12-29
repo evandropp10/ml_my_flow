@@ -68,7 +68,7 @@ In this endpoint the dataset are submitted to 3 different algorithms. It's possi
 * Input parameters:
   
 ```post_data = {'train_columns': ','.join(train_columns), 'target_column': target, 'ml_method': ml_method, 'test_size': 0.2, 'payload': df_json}```
-  * **train_columns:** *String*. Columns separated by comma to train the models, if '' all the columns will be used. Example: "col1, col2, col3".
+  * **train_columns:** *String*. Columns separated by comma to train the models, if "" all the columns will be used. Example: "col1, col2, col3".
   * **target_column:**  *String*. Column to be predicted.
   * **ml_method:** *String*. Column to choose the machine learning method. Should be "Regression" or "Classification".
   * **test_size:** *Float*. Size of the part of the data to be tested with the trained algorithms.
@@ -80,7 +80,7 @@ In this endpoint the dataset are submitted to 3 different algorithms. It's possi
 ### Train
 **post /train**
 
-This endpoint if for train the model with the choosen algorithm. The trained model is saved in the folder *model_registry* inside the container.
+This endpoint is for training the model with the choosen algorithm. The trained model is saved in pickle format on the folder *model_registry* inside the container.
 
 * Input parameters:
   
@@ -92,7 +92,21 @@ This endpoint if for train the model with the choosen algorithm. The trained mod
   * **payload:** *Json*. Dataset.
 
 * Output:
-  * Json with the accuracy result of the 3 different algorithms.
+  * Json with the pickle path.
+
+### Predict
+**post /predict**
+
+This endpoint is for submit new data to predict the traget value.
+
+* Input parameters:
+  
+```post_data = {'model_path': model_path, 'payload': df_json}```
+  * **model_path:** *String*. Path of the pickle file inside the container.
+  * **payload:** *Json*. Dataset.
+
+* Output:
+  * Json with the prediction.
   
 
 
