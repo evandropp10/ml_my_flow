@@ -27,7 +27,7 @@ Prerequisites: [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-G
 
 4. Check the container Status.
    
-    Wait 2 or 3 minutes and check if the container status is UP with this command:
+    Wait some seconds and check if the container status is UP with this command:
 
     ```docker ps```
 
@@ -88,7 +88,7 @@ This endpoint is for training the model with the choosen algorithm. The trained 
 * **train_columns:** *String*. Columns separated by comma to train the models, if '' all the columns will be used. Example: "col1, col2, col3".
 * **target_column:**  *String*. Column to be predicted.
 * **ml_method:** *String*. Column to choose the machine learning method. Should be "Regression" or "Classification".
-* **model_name:** *String*. Name of the algorithm to train the model. In Regression should be "linear", "gradient" ou "randon_forest" and in Classification should be "KNN", "gradient", "randon_forest".
+* **model_name:** *String*. Name of the algorithm to train the model. In Regression should be "linear", "gradient" or "randon_forest" and in Classification should be "KNN", "gradient" or "randon_forest".
 * **payload:** *Json*. Dataset.
 
 #### Output:
