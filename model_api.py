@@ -68,7 +68,9 @@ def create_app(test_config=None ):
         
         result = ml.predict(df, model_file=model_path)
 
-        return jsonify({'prediction': list(result)}) 
+        json_result = pd.DataFrame(result, columns=['prediction']).to_json()
+        
+        return json_result
 
     @app.route('/')
     def available_test(): 
