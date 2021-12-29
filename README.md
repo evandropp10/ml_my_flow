@@ -8,35 +8,41 @@ Prerequisites: [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-G
 
 ### Steps:
 1. Clone the repository.
+   
     Open the terminal, go to the folder that you want to save the files and type: 
 
     ```git clone https://github.com/evandropp10/ml_my_flow.git```
 
-2. Build the container:
+2. Build the container.
+   
     Using the terminal go to the repository folder, should have the file Dockerfile, and type:
 
     ```docker image build -t ml-my-flow .```
 
-3. Run the container:
+3. Run the container.
+   
     Using the terminal type:
 
     ```docker run -p 5000:5000 -d ml-my-flow```
 
-4. Check the container Status:
+4. Check the container Status.
+   
     Wait 2 or 3 minutes and check if the container status is UP with this command:
 
     ```docker ps```
 
-The Application is running in port 5000.
+The Application is running on port 5000.
 
 ## Endpoints
 
 ### Check API Status
 **get /**
+
 Return 200 if API is available.
 
 ### Dataset Prepare
 **post /prepare**
+
 In this endpoint are executed 4 basic data preparation.
 1. Convert all the object columns to integer.
 2. Remove columns with high variation. 
@@ -52,6 +58,10 @@ In this endpoint are executed 4 basic data preparation.
 
 * Output:
   * Dataset in format json.
+
+
+### Train and Test
+**post /train_test**
 
 
 
