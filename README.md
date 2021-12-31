@@ -107,6 +107,9 @@ This endpoint is for submit new data to predict the traget value.
 
 #### Output:
 * Json with the prediction.
+
+## Examples
+Please check the folder examples/. There are 2 example notebooks, one for regression and another for classification.
   
 
 
