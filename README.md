@@ -109,7 +109,10 @@ This endpoint is for submit new data to predict the traget value.
 * Json with the prediction.
 
 ## Examples
-Please check the folder examples/. There are 2 example notebooks, one for regression and another for classification.
+Please check the folder /examples/. There are 2 example notebooks, one for regression and another for classification.
+
+## AWS Architecture
+Look at the folder /aws_architecture/ to find the architeture draw and explanation.
   
 
 
