@@ -9,6 +9,7 @@ def create_app(test_config=None ):
     # create and configure the app
     app = Flask(__name__)
 
+    # endpoint to prepare the dataset
     @app.route('/prepare', methods=['POST'])
     def prepare(): 
         
@@ -24,6 +25,7 @@ def create_app(test_config=None ):
 
         return json_prep
 
+    # endpoint to evaluate models
     @app.route('/train_test', methods=['POST'])
     def train_test(): 
         train_columns = request.form.get('train_columns')
@@ -41,6 +43,7 @@ def create_app(test_config=None ):
 
         return return_train
 
+    # endpoint to train the model
     @app.route('/train_model', methods=['POST'])
     def train_model(): 
         train_columns = request.form.get('train_columns')
@@ -58,7 +61,7 @@ def create_app(test_config=None ):
 
         return return_train
 
-
+    # endpoint to predict
     @app.route('/predict', methods=['POST'])
     def predict(): 
         model_path = request.form.get('model_path')
